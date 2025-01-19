@@ -6,7 +6,7 @@ A simple calculator that will help you convert currencies such as: €, £, $
 
 ## Technologies
 
-- javaScript
+- JavaScript
 - HTML
 - CSS
 - BEM convenion
