@@ -1,44 +1,67 @@
-console.log("Cześć")
 
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
-let currencytElement = document.querySelector(".js-currency");
-let formElement = document.querySelector(".js-form");
-let courseElement = document.querySelector(".js-course");
-let resetElement = document.querySelector(".js-reset");
-
-amountElement.focus();
-
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    let rateEUR = 4.3466;
-    let rateUSD = 3.9679;
-    let rateGBP = 5.0093;
-
-    let amount = +amountElement.value;
-    let currency = currencytElement.value;
-    let result;
-
-    switch (currency) {
-        case "€":
-            result = amount / rateEUR;
-            courseElement.innerText = `1€ = 4.3466 zł`
-            break;
-        case "$":
-            result = amount / rateUSD;
-            courseElement.innerText = `1$ = 3.9679 zł`
-            break;
-        case "£":
-            result = amount / rateGBP;
-            courseElement.innerText = `1£ = 5.0093 zł`
-            break;
+{
+    const welcome = () => {
+        console.log("Cześć")
     }
-    resultElement.innerText = `${result.toFixed(2)} ${currency}`;
+    welcome();
 
-});
+    const calculate = (amount, currency) => {
 
-resetElement.addEventListener("click", () => {
-    resultElement.innerText = "";
-    courseElement.innerText = "";
-});
+        const rateEUR = 4.1872;
+        const rateUSD = 4.0548;
+        const rateGBP = 5.0312;
+
+        switch (currency) {
+
+            case "€":
+                courseElement.innerText = `1€ = 4.1872 zł`
+                return amount / rateEUR;
+
+            case "$":
+                courseElement.innerText = `1$ = 4.0548 zł`
+                return amount / rateUSD;
+
+            case "£":
+                courseElement.innerText = `1£ = 5.0312 zł`
+                return amount / rateGBP;
+        }
+    }
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-amount");
+        const currencytElement = document.querySelector(".js-currency");
+
+        const amount = +amountElement.value;
+        const currency = currencytElement.value;
+
+        const result = calculate(amount, currency);
+        resultElement.innerText = `${result.toFixed(2)} ${currency}`;
+
+    }
+const CurrencyValue = () => {
+    const courseElement = 
+}
+    const resultElement = document.querySelector(".js-result");
+    const courseElement = document.querySelector(".js-course");
+
+    const resetField = () => {
+
+        resultElement.innerText = "";
+        courseElement.innerText = "";
+    }
+
+
+    const init = () => {
+
+        const resetElement = document.querySelector(".js-reset");
+        const formElement = document.querySelector(".js-form");
+
+        formElement.addEventListener("submit", onFormSubmit);
+        resetElement.addEventListener("click", resetField);
+        amountElement.focus();
+    }
+    init();
+
+}
