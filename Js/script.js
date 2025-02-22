@@ -40,8 +40,7 @@
         resultElement.innerText = `${result.toFixed(2)} ${currency}`;
 
     }
-const CurrencyValue = () => {
-    const courseElement = 
+
 }
     const resultElement = document.querySelector(".js-result");
     const courseElement = document.querySelector(".js-course");
